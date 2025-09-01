@@ -65,13 +65,100 @@ section h3 {
   background-color: #f9f9f9;
 }
 
-.activity-card h4 {
-  margin-bottom: 10px;
-  color: #0066cc;
+/* Participants section inside activity cards */
+.activity-card .participants {
+  margin-top: 15px;
+  padding-top: 12px;
+  border-top: 1px dashed #eee;
 }
 
-.activity-card p {
-  margin-bottom: 8px;
+.activity-card .participants h5 {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: #1a237e;
+  font-weight: 700;
+}
+
+/* keep the markup simple but show custom bullets */
+.participants-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.participants-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  padding-left: 0;
+}
+
+/* colored circular "bullet" to satisfy bulleted-list requirement */
+.participants-list li::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1a237e;
+  margin-right: 6px;
+  flex: 0 0 8px;
+}
+
+/* avatar with initials */
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: white;
+  font-size: 13px;
+  flex: 0 0 36px;
+  background: linear-gradient(135deg, #6a1b9a, #3949ab);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+}
+
+/* participant text */
+.participant-name {
+  font-size: 15px;
+  color: #1a237e;
+  font-weight: 600;
+}
+
+.participant-meta {
+  font-size: 12px;
+  color: #666;
+  margin-left: 6px;
+  font-weight: 400;
+}
+
+/* small "show more" link/footer for long lists */
+.participants-footer {
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+  align-items: center;
+}
+
+.participants-footer button {
+  background: transparent;
+  color: #1a237e;
+  border: 1px solid #dfe3f6;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+@media (max-width: 520px) {
+  .avatar { width:32px; height:32px; font-size:12px; flex:0 0 32px; }
+  .participant-name { font-size:14px; }
 }
 
 .form-group {
@@ -133,6 +220,15 @@ button:hover {
 }
 
 .hidden {
+  display: none;
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  color: #666;
+}
   display: none;
 }
 
